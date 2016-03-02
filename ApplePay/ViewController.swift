@@ -137,12 +137,13 @@ extension ViewController: PKPaymentAuthorizationViewControllerDelegate {
     }
   }
   
-  // 支付shippingMethod
+  // 支付shippingMethod，可以处理“配送方式”
   func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingMethod shippingMethod: PKShippingMethod, completion: (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void) {
     print(shippingMethod.detail)
     completion(PKPaymentAuthorizationStatus.Success, self.summaryItems)
   }
   
+  // 可以处理“地址”
   func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didSelectShippingAddress address: ABRecord, completion: (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void) {
     print(address)
     completion(PKPaymentAuthorizationStatus.Success, self.shippingMethods,self.summaryItems)
